@@ -1,2 +1,2 @@
 # playground
-Frontend to test some deploy tools
+Simple Frontend to test some deploy tools

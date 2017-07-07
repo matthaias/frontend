@@ -1,2 +1,2 @@
 # playground
-Dirty Frontend to test some deploy tools
+Frontend to test some deploy tools

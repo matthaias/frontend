@@ -15,7 +15,7 @@ export default class Index extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://45.76.94.91:8080`)
+        fetch(`http://45.32.152.155:8080`)
             .then(response => response.json())
             .then(urls => {
                 this.setState({
@@ -26,13 +26,13 @@ export default class Index extends React.Component {
     }
 
     handleSubmit = url => {
-        fetch(`http://45.76.94.91:8080/`, {
+        fetch(`http://45.32.152.155:8080/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url })
         })
             .then(response => response.json())
-            .then(response => fetch(`http://45.76.94.91:8080`))
+            .then(response => fetch(`http://45.32.152.155:8080`))
             .then(response => response.json())
             .then(urls => {
                 this.setState({
@@ -45,8 +45,8 @@ export default class Index extends React.Component {
     handleDelete = id => e => {
         e.preventDefault();
 
-        fetch(`http://45.76.94.91:8080/${id}`, { method: 'DELETE' })
-            .then(response => fetch(`http://45.76.94.91:8080`))
+        fetch(`http://45.32.152.155:8080/${id}`, { method: 'DELETE' })
+            .then(response => fetch(`http://45.32.152.155:8080`))
             .then(response => response.json())
             .then(urls => {
                 this.setState({

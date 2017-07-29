@@ -3,7 +3,7 @@ import 'isomorphic-fetch';
 import UrlCard from '../components/UrlCard';
 import UrlForm from '../components/UrlForm';
 
-const backendAddress = '45.32.152.155';
+const backendAddress = '45.77.65.155';
 
 export default class Index extends React.Component {
     constructor(props) {

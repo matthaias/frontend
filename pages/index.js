@@ -3,6 +3,8 @@ import 'isomorphic-fetch';
 import UrlCard from '../components/UrlCard';
 import UrlForm from '../components/UrlForm';
 
+const backendAddress = '45.32.152.155';
+
 export default class Index extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,7 @@ export default class Index extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://104.207.130.44:8080`)
+        fetch(`http://${backendAddress}:8080`)
             .then(response => response.json())
             .then(urls => {
                 this.setState({
@@ -26,13 +28,13 @@ export default class Index extends React.Component {
     }
 
     handleSubmit = url => {
-        fetch(`http://104.207.130.44:8080/`, {
+        fetch(`http://${backendAddress}:8080/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url })
         })
             .then(response => response.json())
-            .then(response => fetch(`http://104.207.130.44:8080`))
+            .then(response => fetch(`http://${backendAddress}:8080`))
             .then(response => response.json())
             .then(urls => {
                 this.setState({
@@ -45,8 +47,8 @@ export default class Index extends React.Component {
     handleDelete = id => e => {
         e.preventDefault();
 
-        fetch(`http://104.207.130.44:8080/${id}`, { method: 'DELETE' })
-            .then(response => fetch(`http://104.207.130.44:8080`))
+        fetch(`http://${backendAddress}:8080/${id}`, { method: 'DELETE' })
+            .then(response => fetch(`http://${backendAddress}:8080`))
             .then(response => response.json())
             .then(urls => {
                 this.setState({

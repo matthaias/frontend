@@ -78,7 +78,7 @@ export default class Index extends React.Component {
                         }
                     `}
                 </style>
-                <span>production</span>
+                <span>stage</span>
                 <UrlForm onSubmit={this.handleSubmit} />
                 {renderUrls}
             </div>
